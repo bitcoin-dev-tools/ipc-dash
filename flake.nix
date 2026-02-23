@@ -56,6 +56,11 @@
             ssh-to-age
             nixos-anywhere
             nixfmt-tree
+            cargo
+            rustc
+            rustfmt
+            clippy
+            capnproto
           ];
         };
       });
