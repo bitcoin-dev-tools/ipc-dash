@@ -4,7 +4,7 @@
   "schemaVersion": 40,
   "refresh": "30s",
   "editable": true,
-  "time": { "from": "now-24h", "to": "now" },
+  "time": { "from": "now-1h", "to": "now" },
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "links": [],
@@ -208,6 +208,7 @@
         "defaults": {
           "unit": "none",
           "decimals": 0,
+          "color": { "mode": "fixed", "fixedColor": "#5794F2" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -236,6 +237,7 @@
       "fieldConfig": {
         "defaults": {
           "unit": "none",
+          "color": { "mode": "fixed", "fixedColor": "#73BF69" },
           "custom": {
             "drawStyle": "bars",
             "lineWidth": 1,
@@ -316,7 +318,20 @@
             "spanNulls": true
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "added/min" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "removed/min" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+            ]
+          }
+        ]
       },
       "options": {
         "legend": { "displayMode": "list", "placement": "bottom" },
@@ -336,6 +351,7 @@
       "fieldConfig": {
         "defaults": {
           "unit": "none",
+          "color": { "mode": "fixed", "fixedColor": "#B877D9" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -375,8 +391,15 @@
         },
         "overrides": [
           {
+            "matcher": { "id": "byName", "options": "used" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FADE2A" } }
+            ]
+          },
+          {
             "matcher": { "id": "byName", "options": "max" },
             "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#F2495C" } },
               { "id": "custom.lineStyle", "value": { "fill": "dash", "dash": [10, 10] } },
               { "id": "custom.fillOpacity", "value": 0 }
             ]
@@ -410,6 +433,7 @@
         "defaults": {
           "unit": "none",
           "decimals": 0,
+          "color": { "mode": "fixed", "fixedColor": "#36A2EB" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -483,7 +507,7 @@
         "tooltip": { "mode": "multi", "sort": "desc" }
       },
       "targets": [
-        { "expr": "bitcoin_bytes_recv_total", "legendFormat": "received", "refId": "A" },
+        { "expr": "bitcoin_bytes_recv_total", "legendFormat": "recv", "refId": "A" },
         { "expr": "bitcoin_bytes_sent_total", "legendFormat": "sent", "refId": "B" }
       ]
     },
@@ -504,6 +528,7 @@
       "fieldConfig": {
         "defaults": {
           "unit": "none",
+          "color": { "mode": "fixed", "fixedColor": "#FF9830" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -532,6 +557,7 @@
       "fieldConfig": {
         "defaults": {
           "unit": "none",
+          "color": { "mode": "fixed", "fixedColor": "#F2495C" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -562,6 +588,7 @@
           "unit": "percentunit",
           "min": 0,
           "max": 1,
+          "color": { "mode": "fixed", "fixedColor": "#73BF69" },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
