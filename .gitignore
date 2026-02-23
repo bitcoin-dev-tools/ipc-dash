@@ -1,2 +1,8 @@
 .envrc
 .direnv
+
+ipc_exporter_rust/target
+result-ipc-rust
+result-ipc-sdk
+result-ipc-exporter
+result

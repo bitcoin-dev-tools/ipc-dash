@@ -1,9 +1,0 @@
-cargo:rerun-if-changed=schema/ipc/capnp/common.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/handler.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/echo.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/mining.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/wallet.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/node.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/chain.capnp
-cargo:rerun-if-changed=schema/ipc/capnp/init.capnp
-cargo:rerun-if-changed=schema/ipc/libmultiprocess/include/mp/proxy.capnp
