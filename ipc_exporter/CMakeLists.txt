@@ -13,8 +13,6 @@ set(BITCOIN_INCLUDE_DIRS "" CACHE STRING "Extra include dirs (semicolon separate
 set(BITCOIN_LIBRARY_DIRS "" CACHE STRING "Extra library dirs (semicolon separated)")
 set(BITCOIN_LINK_LIBS "" CACHE STRING "Override link libraries (semicolon separated)")
 set(DEFAULT_BITCOIN_LINK_LIBS
-  bitcoin_ipc
-  bitcoin_node
   bitcoin_common
   bitcoin_util
   bitcoin_crypto
@@ -32,7 +30,11 @@ set(DEFAULT_BITCOIN_LINK_LIBS
   kj
 )
 
-add_executable(bitcoind-ipc-exporter src/main.cpp)
+add_executable(bitcoind-ipc-exporter
+  src/main.cpp
+  src/translation_stub.cpp
+  src/wallet_stubs.cpp
+)
 
 target_compile_options(bitcoind-ipc-exporter PRIVATE -Wall -Wpedantic)
 target_compile_options(bitcoind-ipc-exporter PRIVATE -UNDEBUG)
@@ -45,6 +47,10 @@ if(BITCOIN_SDK_DIR)
   )
   target_link_directories(bitcoind-ipc-exporter PRIVATE
     "${BITCOIN_SDK_DIR}/lib"
+  )
+  set(DEFAULT_BITCOIN_LINK_LIBS
+    bitcoin_ipc
+    ${DEFAULT_BITCOIN_LINK_LIBS}
   )
 elseif(BUILD_WITH_BITCOIN_CORE_TREE)
   if(NOT BITCOIN_SOURCE_DIR)
@@ -63,6 +69,11 @@ elseif(BUILD_WITH_BITCOIN_CORE_TREE)
   target_link_directories(bitcoind-ipc-exporter PRIVATE
     "${BITCOIN_BUILD_DIR}/src"
     "${BITCOIN_BUILD_DIR}/src/univalue"
+  )
+  set(DEFAULT_BITCOIN_LINK_LIBS
+    bitcoin_ipc
+    bitcoin_node
+    ${DEFAULT_BITCOIN_LINK_LIBS}
   )
 endif()
 
