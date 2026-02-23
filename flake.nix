@@ -26,7 +26,7 @@
       ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       settings = {
-        hostName = "usdt-dash";
+        hostName = "ipc-dash";
         domain = "tracing.fish.foo";
         networkInterface = "enp1s0";
         ipAddress = "188.245.67.250";
