@@ -7,7 +7,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
-    ipc-exporter.url = "git+file:../ipc-exporter-rust";
+    ipc-exporter.url = "github:bitcoin-dev-tools/ipc-exporter-rust";
     ipc-exporter.inputs.nixpkgs.follows = "nixpkgs";
   };
 
