@@ -62,11 +62,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1771881933,
-        "narHash": "sha256-gP4suiOmA43yVD0KjhZic59l1fSYX8gyaqfKnWgwsIg=",
+        "lastModified": 1771884751,
+        "narHash": "sha256-Eo2S5djnGjJSdRTdDQWGBcVFfl52Gad4V9xOUJQNf3I=",
         "ref": "refs/heads/master",
-        "rev": "8bb1b30890654ff27caa795f3d4c93f7cf3183c3",
-        "revCount": 31,
+        "rev": "5ba6f945e16be0330c510e99ba3f7f5ef9bea781",
+        "revCount": 34,
         "type": "git",
         "url": "file:../ipc-exporter-rust"
       },

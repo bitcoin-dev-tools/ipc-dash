@@ -118,6 +118,7 @@
       datasources.settings.datasources = [
         {
           name = "Prometheus";
+          uid = "prometheus";
           type = "prometheus";
           url = "http://localhost:9090";
           isDefault = true;
@@ -152,7 +153,7 @@
     enable = true;
     package = pkgs.caddy.withPlugins {
       plugins = [ "github.com/caddy-dns/cloudflare@v0.2.3" ];
-      hash = "sha256-bJO2RIa6hYsoVl3y2L86EM34Dfkm2tlcEsXn2+COgzo=";
+      hash = "sha256-eDCHOuPm+o3mW7y8nSaTnabmB/msw6y2ZUoGu56uvK0=";
     };
     virtualHosts.${settings.domain}.extraConfig = ''
       tls {

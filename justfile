@@ -27,9 +27,14 @@ build:
 
 remote_dir := "/etc/nixos-config"
 
+# Build locally and switch on remote
+[group('build')]
+switch:
+    nixos-rebuild switch --flake .#{{flake_config}} --target-host {{user}}@{{host}}
+
 # Sync config and switch on remote
 [group('build')]
-switch: sync
+switch-remote: sync
     ssh {{user}}@{{host}} 'nixos-rebuild switch --flake {{remote_dir}}#{{flake_config}}'
 
 # Sync config and test on remote (no boot default)
@@ -72,6 +77,11 @@ check:
 [group('admin')]
 generate-sops:
     ssh {{user}}@{{host}} 'mkdir -p /root/.config/sops/age && age-keygen -o /root/.config/sops/age/keys.txt 2>&1 | tee /dev/stderr | grep "public key" | cut -d: -f2 | tr -d " "'
+
+# Check status of bitcoind, ipc-exporter, and prometheus
+[group('admin')]
+status:
+    ssh {{user}}@{{host}} 'systemctl status --no-pager bitcoind-mainnet bitcoind-ipc-exporter prometheus'
 
 # SSH into the server
 [group('admin')]
