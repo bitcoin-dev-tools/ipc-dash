@@ -19,6 +19,24 @@ If your link/include layout differs, pass:
 - `-DBITCOIN_LIBRARY_DIRS='dir1;dir2'`
 - `-DBITCOIN_LINK_LIBS='lib1;lib2;lib3'`
 
+## Package a Bitcoin IPC SDK (Nix)
+
+You can package headers + static libraries from a built Bitcoin Core tree:
+
+```nix
+let
+  bitcoinIpcSdk = pkgs.callPackage ./ipc_exporter/bitcoin-ipc-sdk.nix {
+    bitcoinSourceDir = /home/will/src/core/worktrees/pr-10102;
+    bitcoinBuildDir = /home/will/src/core/worktrees/pr-10102/build;
+  };
+in
+pkgs.callPackage ./ipc_exporter/default.nix {
+  inherit bitcoinIpcSdk;
+}
+```
+
+With this flow, the exporter package depends only on the SDK package, not directly on a live source/build checkout.
+
 ## Run
 
 ```sh
