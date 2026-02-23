@@ -1,0 +1,10 @@
+/home/will/src/bitcoin-dev-tools/usdt-dash/ipc_exporter_rust/target/debug/deps/capnpc-56f3c1ddcd3059d5.d: /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/lib.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen_types.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/pointer_constants.rs
+
+/home/will/src/bitcoin-dev-tools/usdt-dash/ipc_exporter_rust/target/debug/deps/libcapnpc-56f3c1ddcd3059d5.rlib: /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/lib.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen_types.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/pointer_constants.rs
+
+/home/will/src/bitcoin-dev-tools/usdt-dash/ipc_exporter_rust/target/debug/deps/libcapnpc-56f3c1ddcd3059d5.rmeta: /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/lib.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen_types.rs /tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/pointer_constants.rs
+
+/tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/lib.rs:
+/tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen.rs:
+/tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/codegen_types.rs:
+/tmp/ipc-exporter-rust-cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/capnpc-0.19.0/src/pointer_constants.rs:

@@ -5,10 +5,7 @@
   ...
 }:
 {
-  imports = [
-    ./tracing/service.nix
-    ./ipc_exporter/module.nix
-  ];
+  imports = [ ./tracing/service.nix ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
