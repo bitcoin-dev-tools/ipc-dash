@@ -101,6 +101,8 @@
         root_url = "https://${settings.domain}";
         serve_from_sub_path = false;
       };
+      analytics.reporting_enabled = false;
+      branding.app_title = "bitcoin-tracing";
       dashboards.default_home_dashboard_path = "/etc/grafana/dashboards/bitcoind.json";
       "auth.anonymous" = {
         enabled = true;
