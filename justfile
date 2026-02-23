@@ -3,7 +3,6 @@ os := os()
 host := "CX22-demo"
 user := "root"
 flake_config := "default"
-bitcoin_source_dir := "/home/will/src/core/worktrees/pr-10102"
 
 [private]
 default:
@@ -68,23 +67,6 @@ update:
 [group('check')]
 check:
     nix flake check --no-build
-
-# Sync all upstream .capnp files from a Bitcoin Core tree into the Rust skeleton
-[group('build')]
-sync-ipc-capnp:
-    rm -rf ipc_exporter_rust/schema
-    mkdir -p ipc_exporter_rust/schema
-    core_src="{{bitcoin_source_dir}}/src"; while IFS= read -r f; do rel=$${f#"$${core_src}/"}; mkdir -p "ipc_exporter_rust/schema/$$(dirname "$${rel}")"; cp "$${f}" "ipc_exporter_rust/schema/$${rel}"; done < <(find "$${core_src}" -type f -name '*.capnp' | sort)
-
-# Build the Rust IPC skeleton (build.rs capnp generation + compile)
-[group('build')]
-build-ipc-rust:
-    nix build --out-link result-ipc-rust --impure --expr 'let pkgs = import <nixpkgs> {}; in pkgs.callPackage ./ipc_exporter_rust/default.nix {}'
-
-# Run the Rust IPC skeleton binary
-[group('run')]
-run-ipc-rust: build-ipc-rust
-    ./result-ipc-rust/bin/ipc-exporter-rust
 
 # Generate age key on server and print public key for .sops.yaml
 [group('admin')]

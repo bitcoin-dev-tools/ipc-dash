@@ -2,18 +2,14 @@
   pkgs,
   config,
   settings,
+  ipc-exporter,
   ...
 }:
 {
-  imports = [ ./tracing/service.nix ];
-
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.efiInstallAsRemovable = true;
-
-  boot.kernel.sysctl."kernel.unprivileged_bpf_disabled" = 1;
-  system.modulesTree = [ config.boot.kernelPackages.kernel.dev ];
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -45,9 +41,21 @@
   services.bitcoind.mainnet = {
     enable = true;
     prune = 2000;
+    extraCmdlineOptions = [ "-ipcbind=unix" ];
     extraConfig = ''
       dbcache=1000
     '';
+  };
+
+  services.bitcoind-ipc-exporter = {
+    enable = true;
+    package = ipc-exporter.packages.x86_64-linux.default;
+    socketPath = "/var/lib/bitcoind-mainnet/node.sock";
+    metricsAddr = "127.0.0.1:9332";
+    user = "bitcoind-mainnet";
+    group = "bitcoind-mainnet";
+    after = [ "bitcoind-mainnet.service" ];
+    bindsTo = [ "bitcoind-mainnet.service" ];
   };
 
   services.tor = {
@@ -61,17 +69,12 @@
     scrapeConfigs = [
       {
         job_name = "bitcoind";
-        static_configs = [ { targets = [ "localhost:9435" ]; } ];
-        scrape_interval = "5s";
+        static_configs = [ { targets = [ "127.0.0.1:9332" ]; } ];
+        scrape_interval = "15s";
       }
       {
         job_name = "node";
         static_configs = [ { targets = [ "localhost:9100" ]; } ];
-        scrape_interval = "15s";
-      }
-      {
-        job_name = "bitcoind-rpc";
-        static_configs = [ { targets = [ "localhost:9436" ]; } ];
         scrape_interval = "15s";
       }
     ];
@@ -103,7 +106,7 @@
       };
       analytics.reporting_enabled = false;
       branding.app_title = "bitcoin-tracing";
-      dashboards.default_home_dashboard_path = "/etc/grafana/dashboards/bitcoind.json";
+      dashboards.default_home_dashboard_path = "/etc/grafana/dashboards/bitcoin-ipc.json";
       "auth.anonymous" = {
         enabled = true;
         org_role = "Viewer";
@@ -130,9 +133,8 @@
     };
   };
 
-  environment.etc."grafana/dashboards/bitcoind.json".source = ./grafana/dashboard.json;
+  environment.etc."grafana/dashboards/bitcoin-ipc.json".source = ./grafana/bitcoin-ipc.json;
   environment.etc."grafana/dashboards/node.json".source = ./grafana/node-dashboard.json;
-  environment.etc."grafana/dashboards/rpc.json".source = ./grafana/rpc-dashboard.json;
 
   sops = {
     defaultSopsFile = ./secrets.yaml;
@@ -172,8 +174,6 @@
     git
     htop
     curl
-    bcc
-    bpftrace
   ];
 
   time.timeZone = "UTC";

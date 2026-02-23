@@ -1,5 +1,5 @@
 {
-  description = "NixOS configuration for usdt-tracing";
+  description = "NixOS configuration for Bitcoin Core IPC monitoring";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -7,6 +7,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    ipc-exporter.url = "git+file:../ipc-exporter-rust";
+    ipc-exporter.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -14,6 +16,7 @@
       nixpkgs,
       disko,
       sops-nix,
+      ipc-exporter,
       ...
     }:
     let
@@ -37,10 +40,14 @@
     {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit settings; };
+        specialArgs = {
+          inherit settings ipc-exporter;
+        };
         modules = [
           disko.nixosModules.disko
           sops-nix.nixosModules.sops
+          ipc-exporter.nixosModules.default
+          { nixpkgs.overlays = [ ipc-exporter.overlays.default ]; }
           ./disk-config.nix
           ./hardware-configuration.nix
           ./configuration.nix
@@ -56,11 +63,6 @@
             ssh-to-age
             nixos-anywhere
             nixfmt-tree
-            cargo
-            rustc
-            rustfmt
-            clippy
-            capnproto
           ];
         };
       });
