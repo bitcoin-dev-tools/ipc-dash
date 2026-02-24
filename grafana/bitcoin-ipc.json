@@ -634,6 +634,162 @@
       "targets": [
         { "expr": "bitcoin_verification_progress", "legendFormat": "progress", "refId": "A" }
       ]
+    },
+    {
+      "type": "row",
+      "title": "UTXO Cache",
+      "id": 25,
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 41 },
+      "panels": []
+    },
+    {
+      "type": "timeseries",
+      "title": "UTXO Cache Rate",
+      "id": 26,
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 42 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ops",
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 0,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "add/s" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "spend/s" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "uncache/s" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "targets": [
+        { "expr": "rate(bitcoin_utxo_cache_add_total[5m])", "legendFormat": "add/s", "refId": "A" },
+        { "expr": "rate(bitcoin_utxo_cache_spend_total[5m])", "legendFormat": "spend/s", "refId": "B" },
+        { "expr": "rate(bitcoin_utxo_cache_uncache_total[5m])", "legendFormat": "uncache/s", "refId": "C" }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "UTXO Cache Value Rate",
+      "id": 27,
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 42 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "sats/s",
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 0,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "add" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "spend" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "uncache" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "targets": [
+        { "expr": "rate(bitcoin_utxo_cache_add_value_total[5m])", "legendFormat": "add", "refId": "A" },
+        { "expr": "rate(bitcoin_utxo_cache_spend_value_total[5m])", "legendFormat": "spend", "refId": "B" },
+        { "expr": "rate(bitcoin_utxo_cache_uncache_value_total[5m])", "legendFormat": "uncache", "refId": "C" }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Cumulative UTXO Cache Ops",
+      "id": 28,
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 42 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 0,
+          "custom": {
+            "drawStyle": "line",
+            "lineWidth": 1,
+            "fillOpacity": 0,
+            "pointSize": 5,
+            "showPoints": "never",
+            "spanNulls": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "add" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "spend" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "uncache" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      },
+      "targets": [
+        { "expr": "bitcoin_utxo_cache_add_total", "legendFormat": "add", "refId": "A" },
+        { "expr": "bitcoin_utxo_cache_spend_total", "legendFormat": "spend", "refId": "B" },
+        { "expr": "bitcoin_utxo_cache_uncache_total", "legendFormat": "uncache", "refId": "C" }
+      ]
     }
   ]
 }
