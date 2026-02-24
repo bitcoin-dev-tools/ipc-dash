@@ -3,16 +3,16 @@
     "bitcoin-node-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1767726200,
-        "narHash": "sha256-EScBMsEp50poyZZ8FAI8D9RLHTDygflEkXagKViCSxw=",
-        "owner": "ryanofsky",
+        "lastModified": 1771934826,
+        "narHash": "sha256-w7PTcFF5Cw8Yww+Nzkzz1lls3gcJmUbn4qiXSdzDYME=",
+        "owner": "willcl-ark",
         "repo": "bitcoin",
-        "rev": "2503f57e93c32158f837e1c9f0dc9f1061b84346",
+        "rev": "6cbf222c6ada1463355e582e4b68dbc98d690956",
         "type": "github"
       },
       "original": {
-        "owner": "ryanofsky",
-        "ref": "pr/ipc",
+        "owner": "willcl-ark",
+        "ref": "pr/trace",
         "repo": "bitcoin",
         "type": "github"
       }
@@ -62,17 +62,17 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1771884751,
-        "narHash": "sha256-Eo2S5djnGjJSdRTdDQWGBcVFfl52Gad4V9xOUJQNf3I=",
-        "ref": "refs/heads/master",
-        "rev": "5ba6f945e16be0330c510e99ba3f7f5ef9bea781",
-        "revCount": 34,
-        "type": "git",
-        "url": "file:../ipc-exporter-rust"
+        "lastModified": 1771939522,
+        "narHash": "sha256-Lbwgrs/pd0EDpgfOBK6mEZW7z9xaEwAvA88KmIpEZok=",
+        "owner": "bitcoin-dev-tools",
+        "repo": "ipc-exporter-rust",
+        "rev": "30f8742cc682eb13e8d2178105af0387da795eed",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:../ipc-exporter-rust"
+        "owner": "bitcoin-dev-tools",
+        "repo": "ipc-exporter-rust",
+        "type": "github"
       }
     },
     "nixpkgs": {
