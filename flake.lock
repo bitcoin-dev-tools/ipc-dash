@@ -62,11 +62,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1771939522,
-        "narHash": "sha256-Lbwgrs/pd0EDpgfOBK6mEZW7z9xaEwAvA88KmIpEZok=",
+        "lastModified": 1771939724,
+        "narHash": "sha256-Ud5lSv9kwhvXLQZxmcO94jFxzBxe2u4YnRzf8dLH0iI=",
         "owner": "bitcoin-dev-tools",
         "repo": "ipc-exporter-rust",
-        "rev": "30f8742cc682eb13e8d2178105af0387da795eed",
+        "rev": "4a416a32e939653bf6b6a6936bea76b9b12a0917",
         "type": "github"
       },
       "original": {

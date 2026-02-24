@@ -65,7 +65,11 @@
 
   services.prometheus = {
     enable = true;
-    extraFlags = [ "--web.enable-admin-api" ];
+    extraFlags = [
+      "--web.enable-admin-api"
+      "--storage.tsdb.retention.time=60d"
+      "--storage.tsdb.retention.size=5GB"
+    ];
     scrapeConfigs = [
       {
         job_name = "bitcoind";
