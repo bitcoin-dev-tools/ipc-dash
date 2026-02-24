@@ -47,11 +47,38 @@
       ]
     },
     {
+      "type": "stat",
+      "title": "Best Block",
+      "id": 30,
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 1 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [{ "color": "blue", "value": null }]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "colorMode": "value",
+        "graphMode": "none",
+        "textMode": "auto"
+      },
+      "targets": [
+        { "expr": "bitcoin_header_height", "refId": "A" }
+      ]
+    },
+    {
       "type": "gauge",
       "title": "Sync Progress",
       "id": 3,
       "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 1 },
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 1 },
       "fieldConfig": {
         "defaults": {
           "unit": "percentunit",
@@ -80,7 +107,7 @@
       "title": "IBD",
       "id": 4,
       "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 1 },
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 1 },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -115,7 +142,7 @@
       "title": "Peers",
       "id": 5,
       "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 1 },
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 1 },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -142,7 +169,7 @@
       "title": "Mempool TXs",
       "id": 6,
       "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 1 },
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 1 },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -162,32 +189,6 @@
       },
       "targets": [
         { "expr": "bitcoin_mempool_size", "refId": "A" }
-      ]
-    },
-    {
-      "type": "stat",
-      "title": "Mempool Memory",
-      "id": 7,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 1 },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "bytes",
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [{ "color": "green", "value": null }]
-          }
-        },
-        "overrides": []
-      },
-      "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
-        "colorMode": "value",
-        "graphMode": "none",
-        "textMode": "auto"
-      },
-      "targets": [
-        { "expr": "bitcoin_mempool_bytes", "refId": "A" }
       ]
     },
     {
