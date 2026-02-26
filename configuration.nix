@@ -16,6 +16,14 @@
     "flakes"
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1d";
+  };
+
+  services.journald.extraConfig = "SystemMaxUse=500M";
+
   networking.hostName = settings.hostName;
   networking.useDHCP = false;
   networking.interfaces.${settings.networkInterface}.ipv4.addresses = [
