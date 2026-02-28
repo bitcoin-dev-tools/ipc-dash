@@ -240,9 +240,9 @@
           "unit": "none",
           "color": { "mode": "fixed", "fixedColor": "#73BF69" },
           "custom": {
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "lineWidth": 1,
-            "fillOpacity": 0,
+            "fillOpacity": 10,
             "pointSize": 5,
             "showPoints": "never",
             "spanNulls": true
@@ -255,7 +255,7 @@
         "tooltip": { "mode": "multi", "sort": "desc" }
       },
       "targets": [
-        { "expr": "rate(bitcoin_blocks_connected_total[5m]) * 3600", "legendFormat": "connected/hr", "refId": "A" }
+        { "expr": "increase(bitcoin_blocks_connected_total[1h])", "legendFormat": "blocks/hr", "refId": "A" }
       ]
     },
     {
@@ -546,7 +546,7 @@
         "tooltip": { "mode": "multi", "sort": "desc" }
       },
       "targets": [
-        { "expr": "rate(bitcoin_tip_updates_total[5m]) * 3600", "legendFormat": "updates/hr", "refId": "A" }
+        { "expr": "increase(bitcoin_tip_updates_total[1h])", "legendFormat": "updates/hr", "refId": "A" }
       ]
     },
     {
@@ -561,6 +561,7 @@
           "color": { "mode": "fixed", "fixedColor": "#F2495C" },
           "custom": {
             "drawStyle": "line",
+            "lineInterpolation": "stepAfter",
             "lineWidth": 1,
             "fillOpacity": 0,
             "pointSize": 5,
@@ -575,7 +576,7 @@
         "tooltip": { "mode": "multi", "sort": "desc" }
       },
       "targets": [
-        { "expr": "rate(bitcoin_chain_state_flushes_total[5m]) * 3600", "legendFormat": "flushes/hr", "refId": "A" }
+        { "expr": "bitcoin_chain_state_flushes_total", "legendFormat": "flushes", "refId": "A" }
       ]
     },
     {
