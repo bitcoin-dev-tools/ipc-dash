@@ -147,7 +147,6 @@
   };
 
   environment.etc."grafana/dashboards/bitcoin-ipc.json".source = ./grafana/bitcoin-ipc.json;
-  environment.etc."grafana/dashboards/node.json".source = ./grafana/node-dashboard.json;
 
   sops = {
     defaultSopsFile = ./secrets.yaml;

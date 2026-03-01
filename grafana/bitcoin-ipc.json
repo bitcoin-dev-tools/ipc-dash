@@ -4,81 +4,145 @@
   "schemaVersion": 40,
   "refresh": "30s",
   "editable": true,
-  "time": { "from": "now-1h", "to": "now" },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
   "links": [],
-  "annotations": { "list": [] },
-  "templating": { "list": [] },
+  "annotations": {
+    "list": []
+  },
+  "templating": {
+    "list": []
+  },
   "panels": [
     {
       "type": "row",
       "title": "Overview",
       "id": 1,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
       "panels": []
     },
     {
       "type": "stat",
       "title": "Block Height",
       "id": 2,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
           "thresholds": {
             "mode": "absolute",
-            "steps": [{ "color": "green", "value": null }]
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "colorMode": "value",
         "graphMode": "none",
         "textMode": "auto"
       },
       "targets": [
-        { "expr": "bitcoin_block_height", "refId": "A" }
+        {
+          "expr": "bitcoin_block_height",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "stat",
       "title": "Best Block",
       "id": 30,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
           "thresholds": {
             "mode": "absolute",
-            "steps": [{ "color": "blue", "value": null }]
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "colorMode": "value",
         "graphMode": "none",
         "textMode": "auto"
       },
       "targets": [
-        { "expr": "bitcoin_header_height", "refId": "A" }
+        {
+          "expr": "bitcoin_header_height",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "gauge",
       "title": "Sync Progress",
       "id": 3,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "percentunit",
@@ -87,27 +151,53 @@
           "thresholds": {
             "mode": "absolute",
             "steps": [
-              { "color": "red", "value": null },
-              { "color": "yellow", "value": 0.999 },
-              { "color": "green", "value": 0.99999 }
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.999
+              },
+              {
+                "color": "green",
+                "value": 0.99999
+              }
             ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        }
       },
       "targets": [
-        { "expr": "bitcoin_verification_progress", "refId": "A" }
+        {
+          "expr": "bitcoin_verification_progress",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "stat",
       "title": "IBD",
       "id": 4,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 12,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -115,80 +205,144 @@
             {
               "type": "value",
               "options": {
-                "0": { "text": "Synced", "color": "green" },
-                "1": { "text": "IBD", "color": "orange" }
+                "0": {
+                  "text": "Synced",
+                  "color": "green"
+                },
+                "1": {
+                  "text": "IBD",
+                  "color": "orange"
+                }
               }
             }
           ],
           "thresholds": {
             "mode": "absolute",
-            "steps": [{ "color": "green", "value": null }]
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "colorMode": "value",
         "graphMode": "none",
         "textMode": "auto"
       },
       "targets": [
-        { "expr": "bitcoin_ibd", "refId": "A" }
+        {
+          "expr": "bitcoin_ibd",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "stat",
       "title": "Peers",
       "id": 5,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
           "thresholds": {
             "mode": "absolute",
-            "steps": [{ "color": "green", "value": null }]
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "colorMode": "value",
         "graphMode": "none",
         "textMode": "auto"
       },
       "targets": [
-        { "expr": "bitcoin_peers", "refId": "A" }
+        {
+          "expr": "bitcoin_peers",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "stat",
       "title": "Mempool TXs",
       "id": 6,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 1 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
           "thresholds": {
             "mode": "absolute",
-            "steps": [{ "color": "green", "value": null }]
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
           }
         },
         "overrides": []
       },
       "options": {
-        "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false },
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
         "colorMode": "value",
         "graphMode": "none",
         "textMode": "auto"
       },
       "targets": [
-        { "expr": "bitcoin_mempool_size", "refId": "A" }
+        {
+          "expr": "bitcoin_mempool_size",
+          "refId": "A"
+        }
       ]
     },
     {
@@ -196,20 +350,36 @@
       "title": "Chain",
       "id": 8,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 5 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
       "panels": []
     },
     {
       "type": "timeseries",
       "title": "Block Height",
       "id": 9,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 6 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 6
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
-          "color": { "mode": "fixed", "fixedColor": "#5794F2" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#5794F2"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -222,23 +392,44 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_block_height", "legendFormat": "height", "refId": "A" }
+        {
+          "expr": "bitcoin_block_height",
+          "legendFormat": "height",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Blocks Connected",
       "id": 10,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 6 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 6
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
-          "color": { "mode": "fixed", "fixedColor": "#73BF69" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#73BF69"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -251,19 +442,37 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "increase(bitcoin_blocks_connected_total[1h])", "legendFormat": "blocks/hr", "refId": "A" }
+        {
+          "expr": "increase(bitcoin_blocks_connected_total[1h])",
+          "legendFormat": "blocks/hr",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Blocks Disconnected",
       "id": 11,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 6 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 6
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -278,19 +487,38 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "disconnected" },
+            "matcher": {
+              "id": "byName",
+              "options": "disconnected"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#F2495C" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#F2495C"
+                }
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "increase(bitcoin_blocks_disconnected_total[5m])", "legendFormat": "disconnected", "refId": "A" }
+        {
+          "expr": "increase(bitcoin_blocks_disconnected_total[5m])",
+          "legendFormat": "disconnected",
+          "refId": "A"
+        }
       ]
     },
     {
@@ -298,15 +526,28 @@
       "title": "Mempool",
       "id": 12,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 14 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
       "panels": []
     },
     {
       "type": "timeseries",
       "title": "TX Rate",
       "id": 13,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 15 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 15
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "tx/min",
@@ -321,38 +562,81 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "added/min" },
+            "matcher": {
+              "id": "byName",
+              "options": "added/min"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "removed/min" },
+            "matcher": {
+              "id": "byName",
+              "options": "removed/min"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "rate(bitcoin_mempool_tx_added_total[5m]) * 60", "legendFormat": "added/min", "refId": "A" },
-        { "expr": "rate(bitcoin_mempool_tx_removed_total[5m]) * 60", "legendFormat": "removed/min", "refId": "B" }
+        {
+          "expr": "rate(bitcoin_mempool_tx_added_total[5m]) * 60",
+          "legendFormat": "added/min",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(bitcoin_mempool_tx_removed_total[5m]) * 60",
+          "legendFormat": "removed/min",
+          "refId": "B"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Mempool Transactions",
       "id": 14,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 15 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 15
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
-          "color": { "mode": "fixed", "fixedColor": "#B877D9" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#B877D9"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -365,19 +649,37 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_mempool_size", "legendFormat": "transactions", "refId": "A" }
+        {
+          "expr": "bitcoin_mempool_size",
+          "legendFormat": "transactions",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Mempool Memory",
       "id": 15,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 15 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 15
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "bytes",
@@ -392,28 +694,72 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "used" },
+            "matcher": {
+              "id": "byName",
+              "options": "used"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FADE2A" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FADE2A"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "max" },
+            "matcher": {
+              "id": "byName",
+              "options": "max"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#F2495C" } },
-              { "id": "custom.lineStyle", "value": { "fill": "dash", "dash": [10, 10] } },
-              { "id": "custom.fillOpacity", "value": 0 }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#F2495C"
+                }
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "fill": "dash",
+                  "dash": [
+                    10,
+                    10
+                  ]
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_mempool_bytes", "legendFormat": "used", "refId": "A" },
-        { "expr": "bitcoin_mempool_max_bytes", "legendFormat": "max", "refId": "B" }
+        {
+          "expr": "bitcoin_mempool_bytes",
+          "legendFormat": "used",
+          "refId": "A"
+        },
+        {
+          "expr": "bitcoin_mempool_max_bytes",
+          "legendFormat": "max",
+          "refId": "B"
+        }
       ]
     },
     {
@@ -421,20 +767,36 @@
       "title": "Network",
       "id": 16,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 23 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
       "panels": []
     },
     {
       "type": "timeseries",
       "title": "Peer Count",
       "id": 17,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 24 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 24
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
           "decimals": 0,
-          "color": { "mode": "fixed", "fixedColor": "#36A2EB" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#36A2EB"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -447,19 +809,37 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_peers", "legendFormat": "peers", "refId": "A" }
+        {
+          "expr": "bitcoin_peers",
+          "legendFormat": "peers",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Bandwidth",
       "id": 18,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 24 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 24
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "Bps",
@@ -475,20 +855,42 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "rate(bitcoin_bytes_recv_total[5m])", "legendFormat": "recv", "refId": "A" },
-        { "expr": "rate(bitcoin_bytes_sent_total[5m])", "legendFormat": "sent", "refId": "B" }
+        {
+          "expr": "rate(bitcoin_bytes_recv_total[5m])",
+          "legendFormat": "recv",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(bitcoin_bytes_sent_total[5m])",
+          "legendFormat": "sent",
+          "refId": "B"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Cumulative Traffic",
       "id": 19,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 24 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 24
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "bytes",
@@ -504,12 +906,26 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_bytes_recv_total", "legendFormat": "recv", "refId": "A" },
-        { "expr": "bitcoin_bytes_sent_total", "legendFormat": "sent", "refId": "B" }
+        {
+          "expr": "bitcoin_bytes_recv_total",
+          "legendFormat": "recv",
+          "refId": "A"
+        },
+        {
+          "expr": "bitcoin_bytes_sent_total",
+          "legendFormat": "sent",
+          "refId": "B"
+        }
       ]
     },
     {
@@ -517,19 +933,35 @@
       "title": "Internal",
       "id": 20,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 32 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
       "panels": []
     },
     {
       "type": "timeseries",
       "title": "Tip Updates",
       "id": 21,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 33 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 33
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
-          "color": { "mode": "fixed", "fixedColor": "#FF9830" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#FF9830"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -542,23 +974,44 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "increase(bitcoin_tip_updates_total[1h])", "legendFormat": "updates/hr", "refId": "A" }
+        {
+          "expr": "increase(bitcoin_tip_updates_total[1h])",
+          "legendFormat": "updates/hr",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Chain State Flushes",
       "id": 22,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 33 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 33
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
-          "color": { "mode": "fixed", "fixedColor": "#F2495C" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#F2495C"
+          },
           "custom": {
             "drawStyle": "line",
             "lineInterpolation": "stepAfter",
@@ -572,25 +1025,46 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_chain_state_flushes_total", "legendFormat": "flushes", "refId": "A" }
+        {
+          "expr": "bitcoin_chain_state_flushes_total",
+          "legendFormat": "flushes",
+          "refId": "A"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Sync Progress",
       "id": 23,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 33 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 33
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "percentunit",
           "min": 0,
           "max": 1,
-          "color": { "mode": "fixed", "fixedColor": "#73BF69" },
+          "color": {
+            "mode": "fixed",
+            "fixedColor": "#73BF69"
+          },
           "custom": {
             "drawStyle": "line",
             "lineWidth": 1,
@@ -603,11 +1077,21 @@
         "overrides": []
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_verification_progress", "legendFormat": "progress", "refId": "A" }
+        {
+          "expr": "bitcoin_verification_progress",
+          "legendFormat": "progress",
+          "refId": "A"
+        }
       ]
     },
     {
@@ -615,15 +1099,28 @@
       "title": "UTXO Cache",
       "id": 25,
       "collapsed": false,
-      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 41 },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
       "panels": []
     },
     {
       "type": "timeseries",
       "title": "UTXO Cache Rate",
       "id": 26,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 0, "y": 42 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 0,
+        "y": 42
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "ops",
@@ -638,41 +1135,94 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "add/s" },
+            "matcher": {
+              "id": "byName",
+              "options": "add/s"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "spend/s" },
+            "matcher": {
+              "id": "byName",
+              "options": "spend/s"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "uncache/s" },
+            "matcher": {
+              "id": "byName",
+              "options": "uncache/s"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "rate(bitcoin_utxo_cache_add_total[5m])", "legendFormat": "add/s", "refId": "A" },
-        { "expr": "rate(bitcoin_utxo_cache_spend_total[5m])", "legendFormat": "spend/s", "refId": "B" },
-        { "expr": "rate(bitcoin_utxo_cache_uncache_total[5m])", "legendFormat": "uncache/s", "refId": "C" }
+        {
+          "expr": "rate(bitcoin_utxo_cache_add_total[5m])",
+          "legendFormat": "add/s",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(bitcoin_utxo_cache_spend_total[5m])",
+          "legendFormat": "spend/s",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(bitcoin_utxo_cache_uncache_total[5m])",
+          "legendFormat": "uncache/s",
+          "refId": "C"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "UTXO Cache Value Rate",
       "id": 27,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 42 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 8,
+        "y": 42
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "sats/s",
@@ -687,41 +1237,94 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "add" },
+            "matcher": {
+              "id": "byName",
+              "options": "add"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "spend" },
+            "matcher": {
+              "id": "byName",
+              "options": "spend"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "uncache" },
+            "matcher": {
+              "id": "byName",
+              "options": "uncache"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "rate(bitcoin_utxo_cache_add_value_total[5m])", "legendFormat": "add", "refId": "A" },
-        { "expr": "rate(bitcoin_utxo_cache_spend_value_total[5m])", "legendFormat": "spend", "refId": "B" },
-        { "expr": "rate(bitcoin_utxo_cache_uncache_value_total[5m])", "legendFormat": "uncache", "refId": "C" }
+        {
+          "expr": "rate(bitcoin_utxo_cache_add_value_total[5m])",
+          "legendFormat": "add",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(bitcoin_utxo_cache_spend_value_total[5m])",
+          "legendFormat": "spend",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(bitcoin_utxo_cache_uncache_value_total[5m])",
+          "legendFormat": "uncache",
+          "refId": "C"
+        }
       ]
     },
     {
       "type": "timeseries",
       "title": "Cumulative UTXO Cache Ops",
       "id": 28,
-      "datasource": { "type": "prometheus", "uid": "prometheus" },
-      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 42 },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 8,
+        "x": 16,
+        "y": 42
+      },
       "fieldConfig": {
         "defaults": {
           "unit": "none",
@@ -737,33 +1340,810 @@
         },
         "overrides": [
           {
-            "matcher": { "id": "byName", "options": "add" },
+            "matcher": {
+              "id": "byName",
+              "options": "add"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#73BF69" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#73BF69"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "spend" },
+            "matcher": {
+              "id": "byName",
+              "options": "spend"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#5794F2" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#5794F2"
+                }
+              }
             ]
           },
           {
-            "matcher": { "id": "byName", "options": "uncache" },
+            "matcher": {
+              "id": "byName",
+              "options": "uncache"
+            },
             "properties": [
-              { "id": "color", "value": { "mode": "fixed", "fixedColor": "#FF9830" } }
+              {
+                "id": "color",
+                "value": {
+                  "mode": "fixed",
+                  "fixedColor": "#FF9830"
+                }
+              }
             ]
           }
         ]
       },
       "options": {
-        "legend": { "displayMode": "list", "placement": "bottom" },
-        "tooltip": { "mode": "multi", "sort": "desc" }
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
       },
       "targets": [
-        { "expr": "bitcoin_utxo_cache_add_total", "legendFormat": "add", "refId": "A" },
-        { "expr": "bitcoin_utxo_cache_spend_total", "legendFormat": "spend", "refId": "B" },
-        { "expr": "bitcoin_utxo_cache_uncache_total", "legendFormat": "uncache", "refId": "C" }
+        {
+          "expr": "bitcoin_utxo_cache_add_total",
+          "legendFormat": "add",
+          "refId": "A"
+        },
+        {
+          "expr": "bitcoin_utxo_cache_spend_total",
+          "legendFormat": "spend",
+          "refId": "B"
+        },
+        {
+          "expr": "bitcoin_utxo_cache_uncache_total",
+          "legendFormat": "uncache",
+          "refId": "C"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 131,
+      "title": "CPU",
+      "type": "row"
+    },
+    {
+      "title": "CPU Usage",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 51
+      },
+      "id": 32,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 20,
+            "stacking": {
+              "mode": "normal"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "expr": "rate(node_cpu_seconds_total{mode=\"system\"}[$__rate_interval])",
+          "legendFormat": "system"
+        },
+        {
+          "expr": "rate(node_cpu_seconds_total{mode=\"user\"}[$__rate_interval])",
+          "legendFormat": "user"
+        },
+        {
+          "expr": "rate(node_cpu_seconds_total{mode=\"iowait\"}[$__rate_interval])",
+          "legendFormat": "iowait"
+        }
+      ]
+    },
+    {
+      "title": "Load Average",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 51
+      },
+      "id": 33,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "expr": "node_load1",
+          "legendFormat": "1m"
+        },
+        {
+          "expr": "node_load5",
+          "legendFormat": "5m"
+        },
+        {
+          "expr": "node_load15",
+          "legendFormat": "15m"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 132,
+      "title": "Memory",
+      "type": "row"
+    },
+    {
+      "title": "Memory Usage",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 60
+      },
+      "id": 34,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 20,
+            "stacking": {
+              "mode": "normal"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "expr": "node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes",
+          "legendFormat": "used"
+        },
+        {
+          "expr": "node_memory_Buffers_bytes + node_memory_Cached_bytes",
+          "legendFormat": "cache/buffers"
+        },
+        {
+          "expr": "node_memory_MemAvailable_bytes - node_memory_Buffers_bytes - node_memory_Cached_bytes",
+          "legendFormat": "free"
+        }
+      ]
+    },
+    {
+      "title": "Memory Utilization",
+      "type": "gauge",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 35,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "min": 0,
+          "max": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 0.7
+              },
+              {
+                "color": "red",
+                "value": 0.9
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        }
+      },
+      "targets": [
+        {
+          "expr": "1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)",
+          "legendFormat": "used"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 68
+      },
+      "id": 133,
+      "title": "Disk",
+      "type": "row"
+    },
+    {
+      "title": "Disk I/O",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 69
+      },
+      "id": 36,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "expr": "rate(node_disk_read_bytes_total[$__rate_interval])",
+          "legendFormat": "read {{device}}"
+        },
+        {
+          "expr": "rate(node_disk_written_bytes_total[$__rate_interval])",
+          "legendFormat": "write {{device}}"
+        }
+      ]
+    },
+    {
+      "title": "Disk Space",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 69
+      },
+      "id": 37,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "stepAfter",
+            "fillOpacity": 20,
+            "stacking": {
+              "mode": "normal"
+            }
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "expr": "node_filesystem_size_bytes{mountpoint=\"/\"} - node_filesystem_avail_bytes{mountpoint=\"/\"}",
+          "legendFormat": "used"
+        },
+        {
+          "expr": "node_filesystem_avail_bytes{mountpoint=\"/\"}",
+          "legendFormat": "available"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 77
+      },
+      "id": 134,
+      "title": "Host Network",
+      "type": "row"
+    },
+    {
+      "title": "Network Traffic",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 78
+      },
+      "id": 38,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bps",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "expr": "rate(node_network_receive_bytes_total{device!=\"lo\"}[$__rate_interval]) * 8",
+          "legendFormat": "rx {{device}}"
+        },
+        {
+          "expr": "rate(node_network_transmit_bytes_total{device!=\"lo\"}[$__rate_interval]) * 8",
+          "legendFormat": "tx {{device}}"
+        }
+      ]
+    },
+    {
+      "title": "Network Errors & Drops",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 78
+      },
+      "id": 39,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "targets": [
+        {
+          "expr": "rate(node_network_receive_errs_total{device!=\"lo\"}[$__rate_interval])",
+          "legendFormat": "rx errors {{device}}"
+        },
+        {
+          "expr": "rate(node_network_transmit_errs_total{device!=\"lo\"}[$__rate_interval])",
+          "legendFormat": "tx errors {{device}}"
+        },
+        {
+          "expr": "rate(node_network_receive_drop_total{device!=\"lo\"}[$__rate_interval])",
+          "legendFormat": "rx drops {{device}}"
+        },
+        {
+          "expr": "rate(node_network_transmit_drop_total{device!=\"lo\"}[$__rate_interval])",
+          "legendFormat": "tx drops {{device}}"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 86
+      },
+      "id": 135,
+      "title": "System",
+      "type": "row"
+    },
+    {
+      "title": "Uptime",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 87
+      },
+      "id": 40,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "value",
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "expr": "time() - node_boot_time_seconds",
+          "legendFormat": "uptime"
+        }
+      ]
+    },
+    {
+      "title": "Total RAM",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 87
+      },
+      "id": 41,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "value",
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "expr": "node_memory_MemTotal_bytes",
+          "legendFormat": "total"
+        }
+      ]
+    },
+    {
+      "title": "Total Disk",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 87
+      },
+      "id": 42,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "value",
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "expr": "node_filesystem_size_bytes{mountpoint=\"/\"}",
+          "legendFormat": "total"
+        }
+      ]
+    },
+    {
+      "title": "CPUs",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 87
+      },
+      "id": 43,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "value",
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "expr": "count(node_cpu_seconds_total{mode=\"idle\"})",
+          "legendFormat": "cpus"
+        }
+      ]
+    },
+    {
+      "title": "OOM Kills",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 91
+      },
+      "id": 44,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ]
+        },
+        "colorMode": "value",
+        "textMode": "value"
+      },
+      "targets": [
+        {
+          "expr": "increase(node_vmstat_oom_kill[24h])",
+          "legendFormat": "last 24h"
+        }
+      ]
+    },
+    {
+      "title": "OOM Kills Over Time",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 4,
+        "w": 18,
+        "x": 6,
+        "y": 91
+      },
+      "id": 45,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "bars",
+            "fillOpacity": 80,
+            "pointSize": 5
+          }
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "expr": "increase(node_vmstat_oom_kill[$__rate_interval])",
+          "legendFormat": "oom kills"
+        }
       ]
     }
   ]
